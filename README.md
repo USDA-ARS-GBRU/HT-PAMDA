@@ -19,7 +19,7 @@ In the `example_PAM_library` each files has this many lines:
   269088
   269088
 ```
-and many of the reads are truncated for example 
+The forward reads have a length of 65nt but the reverse reads have a length of 10nt. For example:
 
 ```
 +
@@ -56,7 +56,7 @@ for `example_PAMDA_data` we see this many lines:
   453716
 ```
 
-Again with many truncated reads.
+It appears these reads underwent some preprocessing to truncate them, But I'm not sure what was done.
 
 IF we look in SRA we can find these samples. for example [expRW086_pool_03_S3_L004](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11182586&display=download)
 
