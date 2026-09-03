@@ -1,6 +1,6 @@
 # HT-PAMDA Counting & Demultiplexing Error Analysis
 
-This document provides a detailed technical analysis of four undisputable errors identified in the HT-PAMDA pipeline codebase (`code/PAMDA.py`).
+This document provides a detailed technical analysis of four undisputable errors identified in the HT-PAMDA pipeline codebase (`code/PAMDA.py`), followed by a critical statistical evaluation of the normalization and curve-fitting methodology.
 
 Each error is analyzed below with code examples, mathematical impacts, and specific evaluations of whether and how each bug impacts the provided example dataset (`fastqs/example_PAMDA_data`).
 
@@ -112,3 +112,31 @@ else:
 | **2. Timepoint Indexing** | Reads `Norm_Counts_0` before creation when multiplexing control | `KeyError` crash or wrong timepoint used for $t_0$ baseline | **No impact in default mode**; **100% crash** if multiplexed control mode is used |
 | **3. Enrichment Normalization** | Line 345 overwrites line 344 using uncorrected `row` value | **Nullifies linear fits and top-$N$ enrichment correction** | **Direct mathematical impact** (enrichment corrections are discarded) |
 | **4. Strand Flip Offsets** | Swaps physical read offsets during R2 spacer match | Demultiplexing failure for R2 spacer reads if offsets differ | **No impact** (spacer cannot fit in 10-bp R2; offsets both equal 2) |
+
+---
+
+## Critical Statistical Review of Normalization & Curve Fitting Methodology
+
+In addition to software bugs, the statistical approach implemented in HT-PAMDA for library normalization and rate constant calculation contains several methodological vulnerabilities. Below is a critical evaluation confirming and expanding upon key statistical limitations.
+
+### 1. Selection Bias in Top-N Order Statistics for Normalization
+- **Methodology:** HT-PAMDA attempts to normalize sample-wide abundance across timepoints (to correct for differential sequencing depth or non-cleaved library accumulation) by fitting linear regressions across timepoints for all $k$-mers, selecting the top $N=5$ largest positive slopes, and taking their median.
+- **Statistical Critique:**
+  - In a 3-mer PAM library for SpCas9 (which recognizes NGG), 60 out of 64 $k$-mers are non-targets (non-cleaved). Selecting only the top 5 extreme positive slopes instead of estimating central tendency (e.g., median across all expected non-target $k$-mers or trimmed mean of the non-cleaved population) introduces significant **order-statistic selection bias**.
+  - Extreme positive slopes in a finite sample are heavily driven by high-end Poisson sampling noise. Selecting the top 5 tail observations systematically overestimates the non-cleaved baseline, introducing unnecessary variance and potential scaling bias into the normalized rates.
+
+### 2. Unconstrained $y$-Intercept in Exponential Decay Curve Fitting
+- **Methodology:** HT-PAMDA models PAM depletion as exponential decay:
+  $$y(t) = a \cdot e^{-kt}$$
+  where both $a$ ($y$-intercept) and $k$ (cleavage rate constant) are fitted via non-linear least squares (`scipy.optimize.curve_fit`).
+- **Statistical Critique:**
+  - With only 4 experimental timepoints ($t = 0, 60, 480, 1920\text{ s}$), fitting a 2-parameter model ($a, k$) leaves only $4 - 2 = 2$ degrees of freedom.
+  - Because all relative abundances are pre-normalized to $t_0 = 1.0$, fixing $a = 1.0$ (reducing the model to 1 parameter $y(t) = e^{-kt}$) reflects the biological reality that 100% of intact PAM sequence is present at $t_0$.
+  - Allowing $a$ to float freely inflates parameter variance, introduces mathematical trade-offs between $a$ and $k$, and allows unphysical initial states ($a \neq 1$) to fit noise in small datasets.
+
+### 3. Ordinary Least Squares (OLS) vs. Weighted Least Squares (WLS) on Sequencing Counts
+- **Methodology:** Non-linear curve fitting uses standard OLS, assuming homoscedastic (constant) variance across timepoints.
+- **Statistical Critique:**
+  - High-throughput sequencing count data follows Poisson or negative binomial distributions where variance scales with the mean ($\text{Var}(Y) \propto \mu$).
+  - As PAM depletion proceeds over time, count values drop toward zero, increasing relative shot noise ($\sigma / \mu = 1/\sqrt{N}$).
+  - While OLS treats all points equally, Weighted Least Squares (WLS) or generalized linear models (GLMs) with Poisson/negative binomial likelihoods would properly weight high-count early timepoints over noisy depleted late timepoints. However, as noted, when library sequencing depth across timepoints is relatively balanced, this effect is somewhat mitigated compared to the degrees-of-freedom and selection-bias issues.
