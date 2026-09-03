@@ -1,0 +1,14 @@
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/serde-0f94020201c30c25.d: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/serde-3bde00971c2418ad/out/private.rs
+
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/libserde-0f94020201c30c25.rlib: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/serde-3bde00971c2418ad/out/private.rs
+
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/libserde-0f94020201c30c25.rmeta: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/serde-3bde00971c2418ad/out/private.rs
+
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs:
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/serde-3bde00971c2418ad/out/private.rs:
+
+# env-dep:OUT_DIR=/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/serde-3bde00971c2418ad/out

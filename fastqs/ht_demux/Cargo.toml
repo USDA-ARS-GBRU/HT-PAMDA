@@ -1,0 +1,18 @@
+[package]
+name = "fastq_barcode_splitter"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name"]
+license = "MIT"
+description = "Split/combine FASTQ reads by 4-nt barcodes across pools and lanes using rust-bio"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+rayon = "1.8"
+walkdir = "2.5"
+regex = "1.10"
+# Use the latest rust-bio major (4.x)
+bio = "4"
+# Pure-Rust gzip backend
+flate2 = { version = "1.0", default-features = false, features = ["miniz_oxide"] }

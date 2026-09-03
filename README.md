@@ -56,9 +56,9 @@ for `example_PAMDA_data` we see this many lines:
   453716
 ```
 
-It appears these reads underwent some preprocessing to truncate them, But I'm not sure what was done.
+It appears that the sequencing was done with asysmetric allocation of paired in sequencing  65:10. This is a possible but rarely ever seen method. The SRA links in the paper appear to be wrong. 
 
-IF we look in SRA we can find these samples. for example [expRW086_pool_03_S3_L004](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11182586&display=download)
+If we look in SRA we can find these samples. for example [expRW086_pool_03_S3_L004](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11182586&display=download)
 
 But when we download that test file `SRR1118258.fastq` it is different from the example file. it has 5966928 rather than 269088 lines, 22x less. The sampling seems somewhat random.
 
@@ -77,10 +77,10 @@ tqdm==4.46.0
 seaborn==0.10.1
 ```
 
-Copilot suggest Python 3.6 for this set of dependencies. I'll try that first. 
+Copilot suggested Python 3.6 for this set of dependencies. Thad does work  
 
 ```
-CONDA_SUBDIR=osx-64 conda create -n htpamdaenv -c conda-forge python=3.6
+CONDA_SUBDIR=osx-64 conda create -n htpamdaenv -c conda-forge python=3.6 pip
 conda activate htpamdaenv
 pip install -r requirements.txt 
 ```
@@ -88,6 +88,7 @@ pip install -r requirements.txt
 # running examplecode 
 
 ```
+cd code
 python3 library_QC.py
 ```
 this runs with this output
@@ -166,6 +167,7 @@ output to CSV
 python3 normcount2rate.py  2.62s user 4.63s system 343% cpu 2.107 total
 ```
 
+
 ```
 time python rate2heatmap.py
 ```
@@ -175,4 +177,6 @@ time python rate2heatmap.py
 samples: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:01<00:00,  1.55it/s]
 python rate2heatmap.py  5.33s user 7.19s system 375% cpu 3.334 total
 ```
+
+#3  Analysis of HT-PAMDA sample data in TAMIPAMI
 

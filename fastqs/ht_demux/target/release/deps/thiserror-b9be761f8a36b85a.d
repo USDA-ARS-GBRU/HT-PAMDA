@@ -1,0 +1,14 @@
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/thiserror-b9be761f8a36b85a.d: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/aserror.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/display.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/var.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/private.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/thiserror-b98472b8e834b8bd/out/private.rs
+
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/libthiserror-b9be761f8a36b85a.rlib: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/aserror.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/display.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/var.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/private.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/thiserror-b98472b8e834b8bd/out/private.rs
+
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/deps/libthiserror-b9be761f8a36b85a.rmeta: /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/lib.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/aserror.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/display.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/var.rs /home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/private.rs /home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/thiserror-b98472b8e834b8bd/out/private.rs
+
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/lib.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/aserror.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/display.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/var.rs:
+/home/adamrivers/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.20/src/private.rs:
+/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/thiserror-b98472b8e834b8bd/out/private.rs:
+
+# env-dep:OUT_DIR=/home/adamrivers/Documents/HT-PAMDA/fastqs/ht_demux/target/release/build/thiserror-b98472b8e834b8bd/out
