@@ -1,0 +1,28 @@
+# Conda environment for running the original HT-PAMDA code.
+# Package versions match requirements.txt exactly.
+#
+# These versions predate conda-forge builds for Apple Silicon (osx-arm64),
+# so on an M-series Mac build the Intel (osx-64) environment; it runs
+# under Rosetta 2:
+#
+#   CONDA_SUBDIR=osx-64 conda env create -f environment.yml
+#   conda activate htpamdaenv
+#   conda config --env --set subdir osx-64   # keep later installs osx-64
+#
+# On Linux or an Intel Mac, omit CONDA_SUBDIR and the config step.
+#
+# Then run the example from the code/ directory:
+#   python library_QC.py
+#   python PAMDA_complete.py
+name: htpamdaenv
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.8
+  - matplotlib=3.1.3
+  - numpy=1.18.1
+  - pandas=1.0.3
+  - scipy=1.4.1
+  - tqdm=4.46.0
+  - seaborn=0.10.1
