@@ -1,0 +1,7 @@
+WT SpCas9, non-NGG PAMs (n = 480 per run)
+Observed, corrected code: median log10 k -4.06; spacer Spearman 0.48
+Null simulation, original code (5 replicates): median log10 k -6.80; fraction at floor 0.67; spacer Spearman 0.01
+Null simulation, corrected code (5 replicates): median log10 k -4.19; fraction at floor 0.04; spacer Spearman 0.04
+Detection limit (95th percentile of corrected-code null background): log10 k = -3.89
+Observed PAMs above the detection limit: 120 of 480 (about 24 expected by chance)
+PAMs above the detection limit: AAAG, AACA, AAGA, AAGC, AAGG, AAGT, AATG, ACAG, ACGG, AGAA, AGAC, AGAG, AGAT, AGCC, AGCG, AGCT, ATAG, ATGG, ATGT, CACA, CAGA, CAGC, CAGG, CAGT, CATT, CCGG, CGAA, CGAC, CGAG, CGAT, CGCC, CGCG, CGCT, CTGG, CTTA, GAAG, GAAT, GACG, GACT, GAGA, GAGC, GAGG, GAGT, GATC, GATG, GATT, GCAG, GCCC, GCCG, GCGG, GCTA, GGAA, GGAC, GGAG, GGAT, GGCC, GGCT, GGTA, GGTC, GTGC, GTGG, GTGT, TAAG, TAGA, TAGC, TAGG, TAGT, TCGG, TGAA, TGAC, TGAG, TGAT, TGCC, TGCG, TGCT, TGTC, TGTT, TTAC, TTGG, TTTG
