@@ -285,7 +285,7 @@ def fastq2count(run_name,
     P5_sample_BCs = variant_ids['P5_sample_barcode'].tolist()
     P5_sample_BC_len = len(P5_sample_BCs[0])
     P7_sample_BCs = variant_ids['P7_sample_barcode'].tolist()
-    P7_sample_BC_len = len(P5_sample_BCs[0])
+    P7_sample_BC_len = len(P7_sample_BCs[0])
 
     nt_complement = dict({'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A', 'N': 'N', '_': '_', '-': '-'})
 
@@ -541,10 +541,10 @@ def rawcount2normcount(run_name,
 
         sample_spacer = str(row['Sample']) + '_' + str(row['Spacer'])
         for i in range(len(timepoints)):
-            df.loc[index, 'Norm_Counts_' + str(i)] = row['Norm_Counts_' + str(i)] / \
-                                                     uptrend_corrections[sample_spacer][i]
-            df.loc[index, 'Norm_Counts_' + str(i)] = row['Norm_Counts_' + str(i)] / \
-                                                     row['Norm_Counts_0']
+            df.loc[index, 'Norm_Counts_' + str(i)] = (row['Norm_Counts_' + str(i)] /
+                                                      uptrend_corrections[sample_spacer][i]) / \
+                                                     (row['Norm_Counts_0'] /
+                                                      uptrend_corrections[sample_spacer][0])
         sample_last = sample_current
     pbar.close()
 
@@ -602,8 +602,8 @@ def normcount2rate(run_name,
             pbar.update()
 
         tps = [x[1] for x in timepoint_indices]
-        obs_raw = [0.00000000001] + [row['Raw_Counts_' + str(x[0])]
-                                     for x in timepoint_indices if str(x[0]) != '0']
+        obs_raw = [0.00000000001 if str(x[0]) == '0' else row['Raw_Counts_' + str(x[0])]
+                   for x in timepoint_indices]
         obs_norm = [row['Norm_Counts_' + str(x[0])] for x in timepoint_indices]
 
         zero_indices = [i for i, e in enumerate(obs_raw) if e == 0]
@@ -643,7 +643,8 @@ def normcount2rate(run_name,
 
     print('appending rate constants')
 
-    min_k = min([100 if ((isinstance(x, float) and x <= 0) or x == 'NaN') else x for x in ks])
+    positive_ks = [x for x in ks if isinstance(x, float) and x > 0]
+    min_k = min(positive_ks) if len(positive_ks) != 0 else 'NaN'
 
     df['Rate_Constant_k'] = [x if ((isinstance(x, float) and x > 0) or x == 'NaN') else min_k for x in ks]
 
